@@ -1,0 +1,159 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title> AngelShop | О нас</title>
+{% endblock %}
+
+{% block body %}
+<!-- breadcrumb part start-->
+<section class="breadcrumb_part">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb_iner">
+                    <h2>О нас</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb part end-->
+
+<!-- product list part start-->
+<section class="about_us padding_top">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="about_us_content">
+                    <h5>Наша задача</h5>
+                    <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</h3>
+                    <div class="about_us_video">
+                        <img src="{% static 'img/about_us_video.jpg' %}" alt="#" style="height: 600px; width: 100%; object-fit: cover;" class="img-fluid">
+                        <a class="about_video_icon popup-youtube"
+                            href="https://www.youtube.com/watch?v=Yh_1K9s6UV0"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- product list part end-->
+
+<!-- feature part here -->
+<section class="feature_part section_padding">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-6">
+                <div class="feature_part_tittle">
+                    <h3>Credibly innovate granular
+                        internal or organic sources
+                        whereas standards.</h3>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="feature_part_content">
+                    <p>Seamlessly empower fully researched growth strategies and interoperable internal or “organic”
+                        sources. Credibly innovate granular internal or “organic” sources whereas high standards in
+                        web-readiness.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-3 col-sm-6">
+                <div class="single_feature_part">
+                    <img src="{% static 'img/icon/feature_icon_1.svg' %}" alt="#">
+                    <h4>Поддержка карт</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="single_feature_part">
+                    <img src="{% static 'img/icon/feature_icon_2.svg' %}" alt="#">
+                    <h4>Онлайн-заказ</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="single_feature_part">
+                    <img src="{% static 'img/icon/feature_icon_3.svg' %}" alt="#">
+                    <h4>Бесплатная доставка</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="single_feature_part">
+                    <img src="{% static 'img/icon/feature_icon_4.svg' %}" alt="#">
+                    <h4>Товар с подарком</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- feature part end -->
+
+<!-- client review part here -->
+<section class="client_review">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="client_review_slider owl-carousel">
+                    <div class="single_client_review">
+                        <div class="client_img">
+                            <img src="{% static 'img/client.png' %}" alt="#">
+                        </div>
+                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to
+                            help alleviate human suffering.</p>
+                        <h5>- Alex Ivanov</h5>
+                    </div>
+                    <div class="single_client_review">
+                        <div class="client_img">
+                            <img src="{% static 'img/client_1.png' %}" alt="#">
+                        </div>
+                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to
+                            help alleviate human suffering.</p>
+                        <h5>- John Popov</h5>
+                    </div>
+                    <div class="single_client_review">
+                        <div class="client_img">
+                            <img src="{% static 'img/client_2.png' %}" alt="#">
+                        </div>
+                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to
+                            help alleviate human suffering.</p>
+                        <h5>- Slava Volkov</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- client review part end -->
+
+{% endblock %}
+
+<!-- jquery plugins here-->
+<script src="{% static '/js/jquery-1.12.1.min.js' %}"></script>
+<!-- popper js -->
+<script src="{% static '/js/popper.min.js '%}"></script>
+<!-- bootstrap js -->
+<script src="{% static '/js/bootstrap.min.js'%}"></script>
+<!-- easing js -->
+<script src="{% static '/js/jquery.magnific-popup.js' %}"></script>
+<!-- swiper js -->
+<script src="{% static '/js/swiper.min.js' %}"></script>
+<!-- swiper js -->
+<script src="{% static '/js/mixitup.min.js' %}"></script>
+<!-- particles js -->
+<script src="{% static '/js/owl.carousel.min.js' %}"></script>
+<script src="{% static '/js/jquery.nice-select.min.js' %}"></script>
+<!-- slick js -->
+<script src="{% static '/js/slick.min.js' %}"></script>
+<script src="{% static '/js/jquery.counterup.min.js' %}"></script>
+<script src="{% static '/js/waypoints.min.js' %}"></script>
+<script src="{% static '/js/contact.js' %}"></script>
+<script src="{% static '/js/jquery.ajaxchimp.min.js' %}"></script>
+<script src="{% static '/js/jquery.form.js' %}"></script>
+<script src="{% static '/js/jquery.validate.min.js' %}"></script>
+<script src="{% static '/js/mail-script.js' %}"></script>
+<!-- custom js -->
+<script src="{% static '/js/custom.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title> AngelShop | Профиль</title>
+{% endblock %}
+
+{% block body %}
+<!-- breadcrumb part start-->
+<section class="breadcrumb_part">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb_iner">
+                    <h2>Профиль</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb part end-->
+<div class="conitainer-fulid mt-30">
+    <div class="row">
+        <div class="col-md-6">
+            {% if buyer.pic %}
+            <img src="{{buyer.pic.url}}" height="350px" width="400px" alt=""
+            style="
+            object-fit: cover;
+            margin: 0 auto;
+            display: block;">
+            {% else %}
+            <img src="{% static 'images/noimage.png' %}" height="350px" width="400px" 
+            style="
+            object-fit: cover;
+            margin: 0 auto;
+            display: block;"
+            alt="">
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                <tr>
+                <tr>
+                    <th>Имя:</th>
+                    <td>{{buyer.name}}</td>
+                </tr>
+                <tr>
+                    <th>Логин:</th>
+                    <td>{{buyer.username}}</td>
+                </tr>
+                <tr>
+                    <th>Почта:</th>
+                    <td>{{buyer.email}}</td>
+                </tr>
+                <tr>
+                    <th>Номер:</th>
+                    <td>{{buyer.phone}}</td>
+                </tr>
+                <tr>
+                    <th>Адрес:</th>
+                    <td>{{buyer.address}}</td>
+                </tr>
+                <tr>
+                    <th>Город:</th>
+                    <td>{{buyer.city}}</td>
+                </tr>
+
+                <tr>
+                    <th>Область:</th>
+                    <td>{{buyer.state}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><a href="{% url 'updateProfile'  %}" class="btn_3">Обновить профиль</a></td>
+                </tr>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <h5 class="text-center mt-3 bg-secondary p-2 text-light">Список желании</h5>
+    {% if wishlist %}
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>Картина</th>
+                <th>Имя</th>
+                <th>Бренд / Цвет / Размер</th>
+                <th>Цена</th>
+                <th>Добавить в корзину</th>
+                <th>Удалить</th>
+            </tr>
+            {% for item in wishlist %}
+            <tr>
+                <td><img src="{{item.product.pic1.url}}" height="80px" width="80px" style="object-fit: cover;" class="rounded" alt=""></td>
+                <td>{{item.product.name}}</td>
+                <td>{{item.product.brand.name}} / {{item.product.color}} / {{item.product.size}}</td>
+                <td>${{item.product.finalprice}}</td>
+                <td><a href="/add-to-cart/{{item.product.id}}/"><i class="fa fa-shopping-cart"></i></a></td>
+                <td><a href="/delete-wishlist/{{item.id}}/"><i class="fa fa-trash text-danger"></i></a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% else %}
+    <p class="text-center mt-3">Нет товаров в списке желаний</p>
+    {% endif %}
+</div>
+{% endblock %}

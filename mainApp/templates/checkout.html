@@ -1,0 +1,138 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title> AngelShop | Оплата </title>
+{% endblock %}
+
+{% block body %}
+
+<!-- breadcrumb part start-->
+<section class="breadcrumb_part">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb_iner">
+          <h2>Оплата</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- breadcrumb part end-->
+
+<!--================Checkout Area =================-->
+<section class="checkout_area section_padding pt-3">
+  <div class="container">
+    <div class="billing_details">
+      <div class="row">
+        <div class="col-lg-6">
+          <h3 class="text-center">Billing Details</h3>
+          <table class="table">
+            <tr>
+            <tr>
+              <th>Имя:</th>
+              <td>{{buyer.name}}</td>
+            </tr>
+            <tr>
+              <th>Логин:</th>
+              <td>{{buyer.username}}</td>
+            </tr>
+            <tr>
+              <th>Почта:</th>
+              <td>{{buyer.email}}</td>
+            </tr>
+            <tr>
+              <th>Телефон:</th>
+              <td>{{buyer.phone}}</td>
+            </tr>
+            <tr>
+              <th>Адрес:</th>
+              <td>{{buyer.address}}</td>
+            </tr>
+            <tr>
+              <th>Город:</th>
+              <td>{{buyer.city}}</td>
+            </tr>
+            <tr>
+              <th>Область:</th>
+              <td>{{buyer.state}}</td>
+            </tr>
+            <tr>
+              <td colspan="2"><a href="{% url 'updateProfile'  %}" class="btn_3" class="text-center">Обновить профиль</a></td>
+            </tr>
+            </tr>
+          </table>
+
+        </div>
+        <div class="col-lg-6">
+          <div class="order_box">
+            <h2>Ваш заказ</h2>
+            <ul class="list">
+              <li>
+                <table class="table table-bordered">
+                  <tr>
+                    <th>Продукт</th>
+                    <th>Цена и шт</th>
+                    <th>Всего</th>
+                  </tr>
+                  <tr>
+                    {% for item in cart.values %}
+                  <tr>
+                    <td>{{item.name}}</td>
+                    <td>${{item.price}} X {{item.qty}}</td>
+                    <td>${{item.total}}</td>
+                  </tr>
+                  {% endfor %}
+                  </tr>
+                </table>
+              </li>
+
+            </ul>
+            <hr>
+            <ul class="list list_2">
+              <li>
+                <a href="#">Всего
+                  <span>$ {{subtotal}}</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">Доставка
+                  <span>${{shipping}}</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">Итого
+                  <span>${{total}}</span>
+                </a>
+              </li>
+
+            </ul>
+            <hr>
+            <form action="" method="post">
+              {% csrf_token %}
+              <div class="payment_item">
+                <label class="mt-3">Режим оплаты</label>
+                <div class="radion_btn">
+                  <input type="radio" id="COD" name="mode" checked />
+                  <label for="COD">Карта</label>
+                  <div class="check"></div>
+                </div>  
+                  <div class="payment_item active">
+                    <div class="radion_btn">
+                      <input type="radio" id="Net-banking" name="mode" />
+                      <label for="Net-banking">Перевод</label>
+                      <div class="check"></div>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn_3">Перейти к размещению заказа</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+</section>
+<!--================End Checkout Area =================-->
+
+{% endblock %}
